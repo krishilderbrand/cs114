@@ -26,23 +26,23 @@ elif number == 19:
     print('nienteen')
 
 if tens == 2:
-     = ('twenty')
+    tensNumber = ('twenty')
 elif tens == 3:
-    print = ('thirty')
+    tensNumber = ('thirty')
 elif tens == 4:
-    print('fourty')
+    tensNumber('fourty')
 elif tens == 5:
-    print('fifty')
+    tensNumber('fifty')
 elif tens == 6:
-    print('sixty')
+    tensNumber('sixty')
 elif tens == 7:
-    print('seventy')
+    tensNumber('seventy')
 elif tens == 8:
-    print('eighty')
+    tensNumber('eighty')
 elif tens == 9:
-    print('ninety')
+    tensNumber('ninety')
 
 if ones == 1
-    print('one')
+    onesNumber = ('one')
 if ones == 2
     print('two')
