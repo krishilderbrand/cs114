@@ -17,12 +17,12 @@ targetUnits = input('Please input the measurement you would like it converted to
 
 
 
-milesToKilometers = float(distance / 1.60934)
+milesToKilometers = float(distance * 1.60934)
 milesToFeet = float(distance * 5280)
 milesToMeters = float(distance * 1609.34)
-kilometersToMiles = float(distance * 1.60934)
-kilometersToFeet = float(distance / 3280.84)
-kilometersToMeters = float(distance / 1000)
+kilometersToMiles = float(distance / 1.60934)
+kilometersToFeet = float(distance * 3280.84)
+kilometersToMeters = float(distance * 1000)
 feetToMiles = float(distance / 5280)
 feetToKilometers = float(distance * 3280.84)
 feetToMeters = float(distance * 3.28084)

@@ -1,4 +1,4 @@
-#import random
+
 print('')
 print('')
 print('==============Space Dungeon==============')
@@ -37,16 +37,11 @@ else:
 print()
 print('A wise man approaches and gives you some well-timed, wise advice.')
 print()
-print('Greetings warrior ' + name = '!')
-print()
+print('Greetings warrior ' + name + '!')
 print('I know your name because I am wise.')
-print()
 print('On your quest you will meet many obstacles.')
-print()
 print('As you fight the evils of this universe your magic and attack points will diminish.')
-print()
 print('Your total health points equals 100.')
-print()
 print('Now go and do what you set out to do!')
 
 print()
@@ -56,12 +51,32 @@ print()
 print()
 
 totalHealth = int(100)
-#random.randint (1, 100, -1)
 
-totalMagicPoints = magicPoints - 20
-totalAttackPoints = attackPoints - 20
+magicPointsUsed = magicPoints - 10
+attackPointsUsed = attackPoints - 10
+totalMagicPoints = magicPoints - magicPointsUsed
+totalAttackPoints = attackPoints - attackPointsUsed
 
-totalPointsUsed = magicPointsUsed + attackPointsUsed
+
+
+#while attackPoints > 0 == True:
+#    print('You have ', attackPoints, ' attack points.')
+#    attackPoints -=10
+
+#for totalHealth in range(5):
+
+
+
+
+
+
+
+
+
+
+
+
+totalPointsUsed = totalMagicPoints+ totalAttackPoints
 
 print('As you are walking briskly, a demagorgan approaches. You must decide to use your magic or your attack skills.')
 
@@ -69,10 +84,9 @@ fightingStyle = input('You may choose to use magic or choose to use your attacki
 
 while fightingStyle == 'attack':
     print(totalAttackPoints)
-        break
+
 while fightingStyle == 'magic':
-    int(input('How many Magic Points would you like to use?'))
-        break
+    print(totalMagicPoints, )
 else:
     print('Please input a valid fighting style.')
 
