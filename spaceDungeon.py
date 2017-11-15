@@ -1,38 +1,49 @@
+''' This is a game that defines values based upon user input. '''
+
+import random
 
 print('')
 print('')
-print('==============Space Dungeon==============')
+print('              ==============Space Dungeon==============')
 print('')
 print('')
 
-print('Greetings warrior.  Are youready to battle in Space Dungeon?')
-print('Answer yes or no, warrior!')
-choice = input()
+
+print('Greetings warrior.  Are you ready to battle in Space Dungeon?')
+print()
+choice = input('Answer yes or no, warrior!                           ')
 if(choice == 'no'):
-  print('Then flee coward!')
+    print('Then flee coward!')
 else:
-  print('Welcome, please create your character\'s name.')
-name = input()
-print('Alright warrior, ' + name + ', what is thy character type?')
-characterType = input()
-print('Now choose how many Magic points you would like. The total amount of your Magic points will determine your attack points. Magic Points plus Attack points will equal 100.')
-magicPoints = int(input())
+    name = input('Welcome, please create your character\'s name.        ')
+    characterType = input('Alright warrior, ' + str(name) + ', what is your character type?  ')
+
+print()
+print('The total amount of your Magic points will determine your attack points.')
+print('Magic Points plus Attack points will equal 100.')
+magicPoints = int(input('Now choose how many Magic points you would like.     '))
+
 while(magicPoints >= 100):
-    print('Please choose a valid amount, imbecile!')
-    magicPoints = int(input())
+    magicPoints = int(input('Please choose a valid amount, imbecile!'))
+
 while(magicPoints <= 0):
-    print('You can\'t be seriously condsidering a value less than 0!')
-    magicPoints = int(input())
+    magicPoints = int(input('You can\'t be seriously condsidering a value less than 0!'))
 else:
-    print('Your magic points are ' , magicPoints, '.')
-attackPoints = 100 - magicPoints
-print(name + ', you have chosen to be a ' + characterType + ' with ' + str(magicPoints) + ' magic points, and ' + str(attackPoints) + ' attack points.')
-print('Does this information look accurate?')
-accuracy = input()
-if(accuracy == 'no'):
-    print('Then thou must master the computer before proceeding.')
-else:
-    print('Let us begin your quest ' + name + '!')
+    print()
+    print('Your magic points are ' + str(magicPoints) + '.')
+    attackPoints = 100 - magicPoints
+
+def accuracyOfProfile():
+    print(name + ', you have chosen to be a ' + characterType + ' with ' + str(magicPoints) + ' magic points, and ' + str(attackPoints) + ' attack points.')
+    accuracy = input('Does this information look accurate?                 ')
+    if(accuracy == 'no'):
+        print('Then you must master the computer before proceeding.')
+    else:
+        print()
+        print('Let us begin your quest ' + name + '!')
+        print()
+        print('==========================================')
+accuracyOfProfile()
 
 print()
 print('A wise man approaches and gives you some well-timed, wise advice.')
@@ -41,65 +52,42 @@ print('Greetings warrior ' + name + '!')
 print('I know your name because I am wise.')
 print('On your quest you will meet many obstacles.')
 print('As you fight the evils of this universe your magic and attack points will diminish.')
-print('Your total health points equals 100.')
+print('Your total health points equals 100 and this will diminish in battle as well.')
 print('Now go and do what you set out to do!')
 
 print()
-print()
 print('You walk in a hurry, he was creeping you out anyway.')
-print()
 print()
 
 totalHealth = int(100)
 
-magicPointsUsed = magicPoints - 10
-attackPointsUsed = attackPoints - 10
-totalMagicPoints = magicPoints - magicPointsUsed
-totalAttackPoints = attackPoints - attackPointsUsed
-
-
-
-#while attackPoints > 0 == True:
-#    print('You have ', attackPoints, ' attack points.')
-#    attackPoints -=10
-
-#for totalHealth in range(5):
-
-
-
-
-
-
-
-
-
-
-
-
-totalPointsUsed = totalMagicPoints+ totalAttackPoints
+pointsUsed = int(attackPoints + magicPoints)
+totalHealth = random.randint(totalHealth - pointsUsed, 100)
 
 print('As you are walking briskly, a demagorgan approaches. You must decide to use your magic or your attack skills.')
 
-fightingStyle = input('You may choose to use magic or choose to use your attacking skills. Would you like to use magic or attack?')
+fightingStyle = input('Would you like to use magic or attack?')
 
-while fightingStyle == 'attack':
-    print(totalAttackPoints)
+if(fightingStyle == 'attack'):
+    while(attackPoints > 20):
+        print('You have used 10 attck points. You now have  ', attackPoints, ' attack points.')
+        attackPoints -=10
+    else:
+        print('You have defeated the demagorgan. Well done, warrior!')
 
-while fightingStyle == 'magic':
-    print(totalMagicPoints, )
+
+elif(fightingStyle == 'magic'):
+    while(magicPoints > 20):
+        print('You have used 10 magic points. You now have ', magicPoints, ' magic points.')
+        magicPoints -=10
+    else:
+        print('You have defeated the demagorgan. Well done, warrior!')
+
 else:
     print('Please input a valid fighting style.')
 
-
-
-magicPointsUsed = int(input('How many Magic Points would you like to use?'))
-attackPointsUsed = int(input('How many Attack Points would you like to use?'))
-
-
-
-while totalPointsUsed <= 45:
-    input('Fight stronger. The demagorgan is going to kill you!') and print('You have ' + totalMagicPoints + ' and ' + totalAttackPoints + ' left.')
-else:
-    print('You have defeated the demagorgan!') and print('You have ' + totalMagicPoints + ' and ' + totalAttackPoints + ' left.')
-
-print('Your total points used')
+for  pointsUsed in range(0,100):
+    print('Your total health is now', totalHealth, '.')
+    break
+if totalHealth == 0:
+    print('You are dead!')
