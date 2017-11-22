@@ -62,11 +62,22 @@ print()
 totalHealth = int(100)
 
 pointsUsed = int(attackPoints + magicPoints)
-totalHealth = random.randint(totalHealth - pointsUsed, 100)
+newHealth = random.randint((totalHealth - (200 - pointsUsed)), totalHealth)
 
-print('As you are walking briskly, a demagorgan approaches. You must decide to use your magic or your attack skills.')
 
-fightingStyle = input('Would you like to use magic or attack?')
+
+
+randomEnemiesList = ['Demagorgan', 'Trogladite', 'Mindflayer', 'Demadog', 'Ogre', 'Troll', 'Dragon']
+
+def randomEnemy(randomEnemiesList):
+    randomNumber = random.randint(0,6)
+    return randomEnemiesList[randomNumber]
+
+enemy1 = randomEnemy(randomEnemiesList)
+
+print('As you are walking briskly, a ', enemy1,' approaches. You must decide to use your magic or your attack skills.')
+
+fightingStyle = input('Would you like to use magic or attack?                     ')
 
 if(fightingStyle == 'attack'):
     while(attackPoints > 20):
@@ -81,13 +92,45 @@ elif(fightingStyle == 'magic'):
         print('You have used 10 magic points. You now have ', magicPoints, ' magic points.')
         magicPoints -=10
     else:
-        print('You have defeated the demagorgan. Well done, warrior!')
+        print('You have defeated the ', enemy1, '. Well done, warrior!')
 
 else:
     print('Please input a valid fighting style.')
 
-for  pointsUsed in range(0,100):
-    print('Your total health is now', totalHealth, '.')
-    break
-if totalHealth == 0:
+if totalHealth > 0:
+    print('Your total health is now', newHealth, '.')
+elif totalHealth <= 0:
+    print('You are dead!')
+
+
+newHealth = random.randint((totalHealth - (200 - pointsUsed)), newHealth)
+
+enemy2 = randomEnemy(randomEnemiesList)
+
+print('You limp away from battle, a ', enemy2,' approaches. You must decide to use your magic or your attack skills.')
+
+fightingStyle = input('Would you like to use magic or attack?                   ')
+
+if(fightingStyle == 'attack'):
+    while(attackPoints > 10):
+        print('You have used 10 attck points. You now have  ', attackPoints, ' attack points.')
+        attackPoints -=10
+    else:
+        print('You have defeated the demagorgan. Well done, warrior!')
+
+
+elif(fightingStyle == 'magic'):
+    while(magicPoints > 10):
+        print('You have used 10 magic points. You now have ', magicPoints, ' magic points.')
+        magicPoints -=10
+    else:
+        print('You have defeated the ', enemy2, '. Well done, warrior!')
+
+else:
+    print('Please input a valid fighting style.')
+
+
+if totalHealth > 0:
+    print('Your total health is now', newHealth, '.')
+elif totalHealth <= 0:
     print('You are dead!')
