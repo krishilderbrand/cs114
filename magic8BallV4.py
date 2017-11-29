@@ -4,13 +4,7 @@ import random
 
 import sys
 
-def exit():
-    print('Type exit to exit.')
-    response = input()
-    if response == 'exit':
-        sys.exit()
-
-
+# List of fortunes
 fortunes = ['No habla inlges.',
 'Why certainly!',
 'Probably not?...',
@@ -27,28 +21,39 @@ fortunes = ['No habla inlges.',
 'Indubitably!',
 'Unfortunately no.',]
 
+# Title sequence
 print()
-print('             ===========The Amazing All knowing Magic 8 Ball===========')
+print('             ===========The Amazing All-knowing Magic 8 Ball===========')
+print()
+print('                          (Type exit if you are finished)')
 print()
 print()
 
+# Obtaining a random selection of fortune.
 def getAnswer(fortunes):
    randomNumber = random.randint(0,14)
    return(fortunes[randomNumber])
 
-
+# Function that asks for user input of what they would like to know.
+# Question must be more than 7 characters
+# User can type exit to exit program
 def main():
    print()
    while getAnswer(fortunes) != True:
        print('I am a magic 8 Ball that answers yes or no questions.')
        question = input('Type what you would like to ask.        ')
-       while len(question) <= int(7):
-           print('Type a valid question!')
-           break
+       if question == 'exit':
+           sys.exit()
+       elif len(question) <= 7:
+           print()
+           print('Input a valid question!')
+           print()
+
        else:
-          print()
-          print(getAnswer(fortunes))
-          print()
+           print()
+           print(getAnswer(fortunes))
+           print()
+
 
 
 main()

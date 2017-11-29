@@ -1,27 +1,51 @@
-''' This is a game that defines values based upon user input. '''
+''' This is a text based game that effect a user's character based upon user input. '''
 
 import random
+import sys
+# Title sequence
 
 print('')
 print('')
-print('              ==============Space Dungeon==============')
+print('              ============== Magical Journey Quest ==============')
 print('')
 print('')
 
 
-print('Greetings warrior.  Are you ready to battle in Space Dungeon?')
-print()
-choice = input('Answer yes or no, warrior!                           ')
-if(choice == 'no'):
-    print('Then flee coward!')
-else:
-    name = input('Welcome, please create your character\'s name.        ')
-    characterType = input('Alright warrior, ' + str(name) + ', what is your character type?  ')
 
-print()
-print('The total amount of your Magic points will determine your attack points.')
-print('Magic Points plus Attack points will equal 100.')
+# Dictionary
+characterTraits = {
+'name': '',
+'characterType': '',
+'HP': 100,
+'magicPoints': '',
+'attackPoints': ''}
+
+# Confirm if the user wants to play
+def start():
+    print('Greetings warrior.  Are you ready to battle in Space Dungeon?')
+    print()
+    choice = input('Answer yes or no, warrior!                           ')
+    if(choice == 'no'):
+        print('Then flee coward!')
+        sys.exit()
+    else:
+        print('Let\'s begin')
+
+start()
+
+characterTraits['name'] = input('Welcome, please create your character\'s name.        ')
+characterTraits['characterType'] = input('Alright warrior, ' + characterTraits['name'] + ', what is your character type?  ')
+
+
+def startInfo():
+    print()
+    print('The total amount of your Magic points will determine your attack points.')
+    print('Magic Points plus Attack points will equal 100.')
+
+startInfo()
+
 magicPoints = int(input('Now choose how many Magic points you would like.     '))
+
 
 while(magicPoints >= 100):
     magicPoints = int(input('Please choose a valid amount, imbecile!'))
@@ -38,34 +62,40 @@ def accuracyOfProfile():
     accuracy = input('Does this information look accurate?                 ')
     if(accuracy == 'no'):
         print('Then you must master the computer before proceeding.')
+        sys.exit()
     else:
         print()
         print('Let us begin your quest ' + name + '!')
         print()
         print('==========================================')
+
 accuracyOfProfile()
 
-print()
-print('A wise man approaches and gives you some well-timed, wise advice.')
-print()
-print('Greetings warrior ' + name + '!')
-print('I know your name because I am wise.')
-print('On your quest you will meet many obstacles.')
-print('As you fight the evils of this universe your magic and attack points will diminish.')
-print('Your total health points equals 100 and this will diminish in battle as well.')
-print('Now go and do what you set out to do!')
+def wiseMan():
+    print()
+    print('A wise man approaches and gives you some well-timed, wise advice.')
+    print()
+    print('Greetings warrior ' + name + '!')
+    print('I know your name because I am wise.')
+    print('On your quest you will meet many obstacles.')
+    print('As you fight, your magic and attack points will diminish.')
+    print('Your total health points equals 100 & this will decrease in battle as well.')
+    print('Now go and do what you set out to do!')
+
+wiseMan()
 
 print()
 print('You walk in a hurry, he was creeping you out anyway.')
 print()
 
+firstChoice = input('You come to a forked path, would you like to go left or right?')
+
+
+
 totalHealth = int(100)
 
 pointsUsed = int(attackPoints + magicPoints)
 newHealth = random.randint((totalHealth - (200 - pointsUsed)), totalHealth)
-
-
-
 
 randomEnemiesList = ['Demagorgan', 'Trogladite', 'Mindflayer', 'Demadog', 'Ogre', 'Troll', 'Dragon']
 
